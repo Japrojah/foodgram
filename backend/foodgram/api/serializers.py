@@ -10,7 +10,7 @@ from django.db import transaction
 
 
 class UserReadSerializer(UserSerializer):
-    """Сериализатор - [GET]. 
+    """Сериализатор - [GET].
     Cписок пользователей.
     Приложение users."""
     is_subscribed = serializers.SerializerMethodField()
