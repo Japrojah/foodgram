@@ -30,7 +30,7 @@ class LRGsMixin(mixins.ListModelMixin,
 
 
 class UserViewSet(mixins.CreateModelMixin,
-                  MyCustomLRGsMixin):
+                  LRGsMixin):
     """ВьюСет приложения users."""
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
@@ -88,7 +88,7 @@ class UserViewSet(mixins.CreateModelMixin,
                             status=status.HTTP_204_NO_CONTENT)
 
 
-class IngredientViewSet(MyCustomLRGsMixin):
+class IngredientViewSet(LRGsMixin):
     """ВьюСет добавление ингридиента.
     Приложение recipes."""
     queryset = Ingredient.objects.all()
@@ -99,7 +99,7 @@ class IngredientViewSet(MyCustomLRGsMixin):
     search_fields = ('^name', )
 
 
-class TagViewSet(MyCustomLRGsMixin):
+class TagViewSet(LRGsMixin):
     """ВьюСет добавление тега.
     Приложение recipes."""
     permission_classes = (AllowAny, )
