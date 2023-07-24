@@ -14,17 +14,21 @@ from users.models import Subscribe, User
 from .filters import RecipeFilter
 from .pagination import CustomPaginator
 from .permissions import IsAuthorOrReadOnly
-from .serializers import (IngredientSerializer, RecipeCreateSerializer,
+from .serializers import (IngredientSerializer, RecipeWriteSerializer,
                           RecipeReadSerializer, RecipeSerializer,
                           SetPasswordSerializer, SubscribeAuthorSerializer,
                           SubscriptionsSerializer, TagSerializer,
                           UserCreateSerializer, UserReadSerializer)
 
 
+class MyCustomLRGsMixin(mixins.ListModelMixin,
+                        mixins.RetrieveModelMixin,
+                        viewsets.GenericViewSet):
+    """Кастомный мисксинг"""
+    pass
+
 class UserViewSet(mixins.CreateModelMixin,
-                  mixins.ListModelMixin,
-                  mixins.RetrieveModelMixin,
-                  viewsets.GenericViewSet):
+                  MyCustomLRGsMixin):
     """ВьюСет приложения users."""
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
@@ -82,9 +86,7 @@ class UserViewSet(mixins.CreateModelMixin,
                             status=status.HTTP_204_NO_CONTENT)
 
 
-class IngredientViewSet(mixins.ListModelMixin,
-                        mixins.RetrieveModelMixin,
-                        viewsets.GenericViewSet):
+class IngredientViewSet(MyCustomLRGsMixin):
     """ВьюСет добавление ингридиента.
     Приложение recipes."""
     queryset = Ingredient.objects.all()
@@ -95,9 +97,7 @@ class IngredientViewSet(mixins.ListModelMixin,
     search_fields = ('^name', )
 
 
-class TagViewSet(mixins.ListModelMixin,
-                 mixins.RetrieveModelMixin,
-                 viewsets.GenericViewSet):
+class TagViewSet(MyCustomLRGsMixin):
     """ВьюСет добавление тега.
     Приложение recipes."""
     permission_classes = (AllowAny, )
@@ -119,7 +119,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action in ('list', 'retrieve'):
             return RecipeReadSerializer
-        return RecipeCreateSerializer
+        return RecipeWriteSerializer
 
     @action(detail=True, methods=['post', 'delete'],
             permission_classes=(IsAuthenticated,))
