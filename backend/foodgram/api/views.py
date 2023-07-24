@@ -21,11 +21,12 @@ from .serializers import (IngredientSerializer, RecipeWriteSerializer,
                           UserCreateSerializer, UserReadSerializer)
 
 
-class MyCustomLRGsMixin(mixins.ListModelMixin,
+class LRGsMixin(mixins.ListModelMixin,
                         mixins.RetrieveModelMixin,
                         viewsets.GenericViewSet):
-    """Кастомный мисксинг"""
-    pass
+    """Нормальный такой мисксинг.
+    Наследуется от ListModelMixin,
+    RetriveModelMixin & GenericViewSet."""
 
 
 class UserViewSet(mixins.CreateModelMixin,
