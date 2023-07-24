@@ -22,7 +22,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         path = os.path.join(settings.BASE_DIR, 'ingredients.csv')
         with open(path, 'r', encoding='utf-8') as file:
-            bar = IncrementalBar('ingredients.csv'.ljust(17), max=len(file.readlines()))
+            bar = IncrementalBar('ingredients.csv'.ljust(17),
+                                 max=len(file.readlines()))
             file.seek(0, 0)
             reader = csv.reader(file)
             next(reader)
