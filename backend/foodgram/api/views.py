@@ -27,6 +27,7 @@ class MyCustomLRGsMixin(mixins.ListModelMixin,
     """Кастомный мисксинг"""
     pass
 
+
 class UserViewSet(mixins.CreateModelMixin,
                   MyCustomLRGsMixin):
     """ВьюСет приложения users."""
