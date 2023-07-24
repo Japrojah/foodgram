@@ -21,16 +21,14 @@ from .serializers import (IngredientSerializer, RecipeWriteSerializer,
                           UserCreateSerializer, UserReadSerializer)
 
 
-class LRGsMixin(mixins.ListModelMixin,
-                        mixins.RetrieveModelMixin,
-                        viewsets.GenericViewSet):
+class LRGsMixin(mixins.ListModelMixin, mixins.RetrieveModelMixin,
+                viewsets.GenericViewSet):
     """Нормальный такой мисксинг.
     Наследуется от ListModelMixin,
     RetriveModelMixin & GenericViewSet."""
 
 
-class UserViewSet(mixins.CreateModelMixin,
-                  LRGsMixin):
+class UserViewSet(mixins.CreateModelMixin, LRGsMixin):
     """ВьюСет приложения users."""
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
