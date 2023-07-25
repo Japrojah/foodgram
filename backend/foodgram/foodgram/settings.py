@@ -11,7 +11,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'dima.serveblog.net', 'backend', 'db']
+ALLOWED_HOSTS = ['127.0.0.1', 'dima.servepics.com', 'backend', 'db']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
