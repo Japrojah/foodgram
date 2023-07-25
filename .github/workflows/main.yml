@@ -54,7 +54,7 @@ jobs:
 
             sudo docker compose exec backend python manage.py migrate
             sudo docker compose exec backend python manage.py collectstatic
-            sudo docker compose exec backend python manage.py load_ingredietns
+            sudo docker compose exec backend python manage.py load_ingredients
 
 
   send_message:
