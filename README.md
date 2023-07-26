@@ -2,7 +2,8 @@
 # Для ревью:
 - адрес 'https://dima.servepics.com'
   ip '158.160.29.10'
-- log/pass 'Dima'/'Dima' - что забавно, ведь я дипломированный специалист по ИБ
+- Admin log/pass 'Dima'/'Dima'
+- user email/pass drweb25@gmail.com / Dima
 ## Технологии:
 - Python==3.9
 - Django==3.2.16
