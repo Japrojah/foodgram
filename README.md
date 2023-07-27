@@ -3,8 +3,8 @@
 - адрес 'https://dima.servepics.com'
   ip '158.160.29.10'
 - Admin log/pass 'Dima'/'Dima'
-- user email/pass drweb25@gmail.com / Dima
-"""Изменения админ зоны в процессе, прошу проверьте остальной функционал сайта. Вход по почте указанной выше."""
+- User email/pass drweb25@gmail.com / Dima
+"""Если я правильно понял последнее замечание - я убрал возможность редактирования поля password модели user"""
 ## Технологии:
 - Python==3.9
 - Django==3.2.16

@@ -8,10 +8,10 @@ class UserAdmin(admin.ModelAdmin):
     list_display = (
         'username', 'pk', 'email', 'password', 'first_name', 'last_name',
     )
-    list_editable = ('password', )
     list_filter = ('username', 'email')
     search_fields = ('username', 'email')
     empty_value_display = '-пусто-'
+    readonly_fields = ('password', )
 
 
 @admin.register(models.Subscribe)
