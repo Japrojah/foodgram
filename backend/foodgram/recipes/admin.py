@@ -24,7 +24,11 @@ class RecipeAdmin(admin.ModelAdmin):
         'text', 'image', 'author',
         'in_favorites'
     )
-    readonly_fields = ('__all__')
+    readonly_fields = (
+        'in_favorites', 'name',
+        'cooking_time', 'text',
+        'image', 'author',
+    )
     list_filter = ('name', 'author', 'tags')
     empty_value_display = '-пусто-'
 
