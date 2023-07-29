@@ -14,6 +14,7 @@ class IngredientAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'color', 'slug')
     list_editable = ('name', 'color', 'slug')
+    readonly_fields('pk', 'name', 'color', 'slug',)
     empty_value_display = '-пусто-'
 
 
@@ -40,16 +41,16 @@ class RecipeAdmin(admin.ModelAdmin):
 @admin.register(models.Recipe_ingredient)
 class RecipeIngredientAdmin(admin.ModelAdmin):
     list_display = ('pk', 'recipe', 'ingredient', 'amount')
-    list_editable = ('recipe', 'ingredient', 'amount')
+    readonly_fields = ('recipe', 'ingredient', 'amount')
 
 
 @admin.register(models.Favorite)
 class FavoriteAdmin(admin.ModelAdmin):
     list_display = ('pk', 'user', 'recipe')
-    list_editable = ('user', 'recipe')
+    readonly_fields = ('user', 'recipe')
 
 
 @admin.register(models.Shopping_cart)
 class ShoppingCartAdmin(admin.ModelAdmin):
     list_display = ('pk', 'user', 'recipe')
-    list_editable = ('user', 'recipe')
+    readonly_fields = ('user', 'recipe')
