@@ -3,8 +3,9 @@
 - адрес 'https://dima.servepics.com'
   ip '158.160.29.10'
 - Admin log/pass 'Dima'/'Dima'
-- User email/pass drweb25@gmail.com / Dima
-"""Если я правильно понял последнее замечание - я убрал возможность редактирования поля password модели user"""
+User1 email/pass a@gmail.com/Qwerty321
+User2 email/pass b@gmail.com/Qwerty321
+
 ## Технологии:
 - Python==3.9
 - Django==3.2.16
