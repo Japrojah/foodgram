@@ -14,7 +14,6 @@ class IngredientAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'color', 'slug')
     list_editable = ('name', 'color', 'slug')
-    readonly_fields('pk', 'name', 'color', 'slug',)
     empty_value_display = '-пусто-'
 
 
