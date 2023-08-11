@@ -38,6 +38,12 @@
 - 'http:/localhost/admin/',
 - 'http:/localhost/users/',
 - 'http:/localhost/tags/',
-- 'http:/localhost/ingredients/'. 
+- 'http:/localhost/ingredients/'.
+### Также не забудьте изменить файл .github/workflow/main.yml если хотите запустить проект на своём сервере автоматически
+В файле прописан скрипт для деплоя и последующего обновления версии проекта на боевом сервере с помощью GitHub Action.
+Это значит что вам необходимо: 
+- Форкнуть проект, чтобы запускать сервера Action самостоятельно;
+- Добавить "secrets" в Action;
+- Укажите log\pass для подключения к вашему серверу.
 
 Powered by @Japrojah
